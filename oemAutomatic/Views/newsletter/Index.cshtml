@@ -1,0 +1,43 @@
+﻿@model oemAutomatic.Models.credentials
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Join our newsletter!</h1>
+
+<p>About once a month we send out newsletters with interesting reports, customer cases and inspiring and educational content.The newsletters are primarily sent to customers of OEM Automatic, but anyone can choose to subscribe.We also regularly send out product area-specific newsletters where we present product news and information related to our product areas; Electrical cabinet components, Machine, Cable, Sensor & Machine Safety, Pressure & Flow or Image Analysis & Vision.Below you can choose which areas you are interested in or if you want to completely unsubscribe from our mailings.</p>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Fname" class="control-label">First name:</label>
+                <input asp-for="Fname" class="form-control" />
+                <span asp-validation-for="Fname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lname" class="control-label">Last name:</label>
+                <input asp-for="Lname" class="form-control" />
+                <span asp-validation-for="Lname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email adress:</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type ="checkbox" id="myCheck" onclick="buttonClicked()" /> I accept GDPR*
+            </div>
+            <div class="form-group">
+                <input disabled type="submit" id="submitBtn" value="Subscribe" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
